@@ -9,6 +9,7 @@ import { BASE_URL } from "./utils/constant";
 import { addUser } from "./store/UserSlice";
 import { useEffect } from "react";
 import { Header } from "./components/Header";
+import { MainPage } from "./Pages/MainPage";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export default function App() {
       <Router>
     <Header />
         <Routes>
+          <Route path="/" element={<MainPage />} />
           <Route path="/notes/:id" element={user ? <Body /> : <Login />} />
           <Route path="/login" element={!user ? <Login /> : <Body />} />
           <Route path="/signup" element={!user ? <SignUp /> : <Body />} />

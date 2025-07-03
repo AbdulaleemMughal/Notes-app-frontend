@@ -32,9 +32,12 @@ export const SingleNote = ({ data, getNote }: SingleNoteProps) => {
         <div>
           <div className="flex justify-between items-center">
             <h2 className="font-semibold text-xl">{data.title}</h2>
+            <div>
             <span className="cursor-pointer" onClick={deleteNote}>
               <Trash2 color="#8e6ad2" />
             </span>
+
+            </div>
           </div>
           <div className="w-full">
             <p className="break-words whitespace-pre-wrap">{data.content}</p>{" "}

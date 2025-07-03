@@ -1,10 +1,10 @@
 import { Loader, PencilLine } from "lucide-react";
-import { SingleNote } from "./SingleNote";
 import toast from "react-hot-toast";
 import { ChangeEvent, useEffect, useState } from "react";
 import { NoteInterface } from "../Interfaces/note.interface";
 import axios, { AxiosError } from "axios";
 import { BASE_URL } from "../utils/constant";
+import { Notes } from "./Notes";
 
 export const NoteForm = () => {
   const [notes, setNotes] = useState<NoteInterface[]>([]);
@@ -61,14 +61,6 @@ export const NoteForm = () => {
     }
   };
 
-  if(loading) {
-    return (
-      <div className="flex justify-center animate-spin mt-5">
-        <Loader size={30} color="#8e6ad2" />
-      </div>
-    )
-  }
-
   return (
     <>
       <div className="px-4 py-10">
@@ -116,19 +108,8 @@ export const NoteForm = () => {
         </div>
       </div>
       <div className="p-4 grid grid-cols-12 gap-4">
-        {notes.length === 0 ? (
-          <h1 className="col-span-12 text-center text-xl font-semibold">
-            No Notes Found
-          </h1>
-        ) : (
-          notes.map((note) => {
-            return (
-              <div className="col-span-6 max-sm:col-span-12">
-                <SingleNote data={note} getNote={getNotes} />
-              </div>
-            );
-          })
-        )}
+        <Notes notes={notes} getNote={getNotes} loading={loading} />
+        
       </div>
     </>
   );
