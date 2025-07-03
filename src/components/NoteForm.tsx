@@ -1,4 +1,4 @@
-import { Loader, PencilLine } from "lucide-react";
+import { PencilLine } from "lucide-react";
 import toast from "react-hot-toast";
 import { ChangeEvent, useEffect, useState } from "react";
 import { NoteInterface } from "../Interfaces/note.interface";

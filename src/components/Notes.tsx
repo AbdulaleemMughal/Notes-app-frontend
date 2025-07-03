@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NoteInterface } from "../Interfaces/note.interface";
 import { SingleNote } from "./SingleNote";
-import axios, { AxiosError } from "axios";
-import { BASE_URL } from "../utils/constant";
-import toast from "react-hot-toast";
 import { Loader } from "lucide-react";
 
 type NotesProps = {
